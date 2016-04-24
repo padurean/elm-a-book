@@ -1,15 +1,31 @@
 body {
-  font-size: 1rem;
-  background-color: #292c36;
-  color: #f0f0f0;
-  font-family:
-    "Myriad Set Pro",
-    "Lucida Grande",
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    "Verdana",
-    "sans-serif";
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: #292B36;
+    color: #d0d0d0;
+    font-family: "Roboto", "sans-serif";
+    width: 100%;
 }
-
-a {  color: #00aba5; }
+header, main, footer {
+    margin: 3rem;
+}
+pre {
+    margin-top: 1.75rem;
+}
+pre, code {
+    font-family: Hack, monospace;
+    font-size: .75rem;
+}
+a {
+    color: #00aba5;
+    text-decoration: none;
+}
+a:hover, a:active {
+    color: #8485CE;
+}
+p {
+    margin: 1rem 0;
+}
+h3 {
+    font-weight: 300;
+}

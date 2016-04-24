@@ -2,39 +2,42 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 
-  <!-- search meta -->
-  <title>Elm Blogger - Static blog boilerplate written in Elm</title>
-  <meta name="author" content="Valentin Padurean (Ogg)" />
-  <meta name="description" content="Static blog boilerplate written in Elm" />
-  <meta name="keywords"
-    content="elm-lang elmlang blog blogger blogging platform markdown" />
-  <meta name="robots" contents="" />
+    <!-- search meta -->
+    <title>Elm Blogger - Static blog boilerplate written in Elm</title>
+    <meta name="author" content="Valentin Padurean (Ogg)" />
+    <meta name="description" content="Static blog boilerplate written in Elm" />
+    <meta name="keywords" content="elm-lang elmlang blog blogger blogging platform markdown" />
+    <meta name="robots" contents="" />
 
-  <!-- styles -->
-  <link rel="stylesheet" href="css.min.css">
+    <!-- styles -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500,500italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css.min.css">
 
-  <!-- icons -->
-  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+    <!-- icons -->
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
 
-  <!-- head scripts -->
-  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- head scripts -->
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
 <body>
-  <div id="main"></div>
+    <div id="main"></div>
 </body>
 <script src="js.min.js"></script>
 <script type="text/javascript" src="Main.js"></script>
 <script type="text/javascript">
-  var app = Elm.fullscreen(Elm.Main);
-  (function() {
-    document.getElementById('footer-year').innerHTML =
-      new Date().getFullYear() + ' ';
-  })();
+    var app = Elm.fullscreen(Elm.Main);
+    (function() {
+        document.getElementById('footer-year').innerHTML =
+            '&copy;' + new Date().getFullYear() + ' &nbsp;';
+    })();
 </script>
 
 </html>

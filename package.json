@@ -20,8 +20,8 @@
   "scripts": {
     "mkdir:dist": "rm -Rf dist && mkdir dist",
     "copy:dist:html": "cp src/index.html dist/",
-    "uglify:css": "parallelshell 'uglifycss src/css/thirdparty/normalize.4.0.0.min.css src/css/css.css > dist/css.min.css'",
-    "uglify:js": "parallelshell 'uglifyjs src/js/js.js -c -o dist/js.min.js'",
+    "uglify:css": "parallelshell 'uglifycss src/css/thirdparty/normalize.4.0.0.min.css src/css/thirdparty/highlight-js-theme.tomorrow-night.css src/css/css.css > dist/css.min.css'",
+    "uglify:js": "parallelshell 'uglifyjs src/js/thirdparty/highlight.pack.js src/js/js.js -c -o dist/js.min.js'",
     "copy:dist:favicon": "cp src/favicon.ico dist/",
     "elm:make": "elm make --warn src/elm/Main.elm --output dist/Main.js",
     "make:dist": "npm run copy:dist:html & npm run uglify:js & npm run uglify:css & npm run copy:dist:favicon && npm run elm:make",

@@ -31,8 +31,6 @@ styles :
   }
 styles =
   { wrapper =
-      [ ( "padding-top", "10px" )
-      , ( "padding-bottom", "20px" )
-      , ( "text-align", "center" )
+      [ ( "text-align", "center" )
       ]
   }

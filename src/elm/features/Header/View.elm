@@ -14,21 +14,26 @@ root : Address Action -> Model -> Html
 root address model =
   header
     [ style styles.header ]
-    [ span [] [ text (headerMessage model) ]
+    [ span
+        [ style styles.logo ]
+        [ span [ style [ ( "color", "#E03C37" ) ] ] [ text "Elm" ]
+        , span [ style [ ( "color", "#D05DB4" ) ] ] [ text " - " ]
+        , span [ style [ ( "color", "#D48F59" ) ] ] [ text "A" ]
+        , span [ style [ ( "color", "#5D80E0" ) ] ] [ text " - " ]
+        , span [ style [ ( "color", "#49BE54" ) ] ] [ text "Book" ]
+        ]
     ]
-
-
-headerMessage : Model -> String
-headerMessage model =
-  "Inna di Header, " ++ model
 
 
 styles :
   { header : List ( String, String )
+  , logo : List ( String, String )
   }
 styles =
   { header =
-      [ ( "text-align", "center" )
-      , ( "color", "lightblue" )
+      []
+  , logo =
+      [ ( "font-size", "1.5rem" )
+      , ( "display", "inline-block" )
       ]
   }

@@ -1,4 +1,4 @@
-module Utils.Events (..) where
+module Common.Utils.Events (..) where
 
 import Html exposing (Attribute)
 import Html.Events exposing (onWithOptions)

@@ -31,36 +31,28 @@ root address model =
           ChapterView.root (pipeBackAddress chapter.id) chapter
 
       Nothing ->
-        ul
-          [ style styles.postList ]
-          (List.map (\chapter -> ChapterView.root (pipeBackAddress chapter.id) chapter) (Dict.values model.chapters))
+        let
+          chapters =
+            Dict.values model.chapters
+
+          chapterView chapter =
+            li
+              []
+              [ (ChapterView.root (pipeBackAddress chapter.id) chapter)
+              ]
+        in
+          ul
+            [ style styles.postList ]
+            (List.map chapterView chapters)
 
 
 styles :
   { postList : List ( String, String )
-  , post :
-      { title : List ( String, String )
-      , date : List ( String, String )
-      , desc : List ( String, String )
-      }
   }
 styles =
   { postList =
-      [ ( "text-align", "left" )
-      , ( "color", "#990" )
+      [ ( "list-style-type", "none" )
+      , ( "padding", "0" )
+      , ( "margin", "0" )
       ]
-  , post =
-      { title =
-          [ ( "font-weight", "bold" )
-          , ( "display", "block" )
-          , ( "font-size", "1.25rem" )
-          ]
-      , date =
-          [ ( "font-style", "italic" )
-          , ( "color", "grey" )
-          ]
-      , desc =
-          [ ( "color", "#666" )
-          ]
-      }
   }

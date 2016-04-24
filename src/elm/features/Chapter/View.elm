@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Signal exposing (Address)
 import Features.Chapter.Types exposing (..)
-import Utils.Events exposing (onLinkClick)
+import Common.Utils.Events exposing (onLinkClick)
 
 
 root : Address Action -> Model -> Html
@@ -18,37 +18,45 @@ root address model =
 blurredView : Address Action -> Model -> Html
 blurredView address model =
   div
-    []
-    [ li
-        []
-        [ a
-            [ href ""
-            , onLinkClick address Focus
-            , style styles.blurred.title
-            ]
-            [ text model.title
-            ]
-        , span [ style styles.blurred.date ] [ text model.date ]
-        , p [ style styles.blurred.desc ] [ text model.desc ]
+    [ style styles.blurred.wrapper ]
+    [ a
+        [ href ""
+        , onLinkClick address Focus
+        , style styles.blurred.title
         ]
+        [ i
+            [ class "fa fa-bookmark-o fa-lg"
+            , style styles.blurred.chapterIcon
+            ]
+            []
+        , text model.title
+        ]
+    , span [ style styles.blurred.date ] [ text model.date ]
+    , p [ style styles.blurred.desc ] [ text model.desc ]
     ]
 
 
 focusedView : Address Action -> Model -> Html
 focusedView address model =
   div
-    []
+    [ style styles.focused.wrapper ]
     [ div
         []
         [ a
             [ href ""
             , onLinkClick address Blur
             ]
-            [ text "ToC" ]
+            [ i
+                [ class "fa fa-list-alt fa-lg"
+                , style styles.focused.tocIcon
+                ]
+                []
+            , text "ToC"
+            ]
         ]
     , div
-        []
-        [ h3 [ style styles.focused.title ] [ text model.title ]
+        [ style styles.focused.chapterWrapper ]
+        [ span [ style styles.focused.title ] [ text model.title ]
         , span [ style styles.focused.date ] [ text model.date ]
         , div
             [ style styles.focused.md ]
@@ -70,41 +78,68 @@ chapterNotFound title =
 
 styles :
   { focused :
-      { title : List ( String, String )
+      { wrapper : List ( String, String )
+      , chapterWrapper : List ( String, String )
+      , title : List ( String, String )
       , date : List ( String, String )
       , md : List ( String, String )
+      , tocIcon : List ( String, String )
       }
   , blurred :
-      { title : List ( String, String )
+      { wrapper : List ( String, String )
+      , title : List ( String, String )
       , date : List ( String, String )
       , desc : List ( String, String )
+      , chapterIcon : List ( String, String )
       }
   }
 styles =
   { focused =
-      { title =
-          [ ( "font-weight", "bold" )
+      { wrapper =
+          []
+      , chapterWrapper =
+          [ ( "margin-top", "2rem" )
+          ]
+      , title =
+          [ ( "display", "block" )
+          , ( "font-size", "1.25rem" )
+          , ( "color", "#92C86B" )
           ]
       , date =
-          [ ( "font-style", "italic" )
+          [ ( "display", "inline-block" )
+          , ( "font-style", "italic" )
           , ( "color", "grey" )
+          , ( "margin", ".25rem 0 0 0" )
           ]
       , md =
-          [ ( "color", "#666" )
+          [ ( "margin-top", "3rem" ) ]
+      , tocIcon =
+          [ ( "display", "inline-block" )
+          , ( "margin-right", ".5rem" )
+          , ( "font-size", "1.25rem" )
           ]
       }
   , blurred =
-      { title =
-          [ ( "font-weight", "bold" )
-          , ( "display", "block" )
+      { wrapper =
+          [ ( "margin-bottom", "3rem" )
+          ]
+      , title =
+          [ ( "display", "block" )
           , ( "font-size", "1.25rem" )
           ]
       , date =
-          [ ( "font-style", "italic" )
+          [ ( "display", "inline-block" )
+          , ( "font-style", "italic" )
           , ( "color", "grey" )
+          , ( "margin", ".25rem 0 0 0" )
           ]
       , desc =
-          [ ( "color", "#666" )
+          [ ( "margin-top", ".5rem" )
+          ]
+      , chapterIcon =
+          [ ( "display", "inline-block" )
+          , ( "margin-right", ".5rem" )
+          , ( "font-size", "1.5rem" )
           ]
       }
   }

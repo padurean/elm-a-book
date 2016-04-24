@@ -11,8 +11,11 @@ import Features.Toc.Types as Toc
 import Features.Toc.View as TocView
 import Features.Header.View as HeaderView
 import Features.Header.Types as Header
-import Features.Hello.View as HelloView
-import Features.Hello.Types as Hello
+
+
+-- import Features.Hello.View as HelloView
+-- import Features.Hello.Types as Hello
+
 import Features.Footer.View as FooterView
 import Features.Footer.Types as Footer
 import Types exposing (..)
@@ -24,9 +27,9 @@ root address model =
     headerPipeBackAddress headerAction =
       Signal.forwardTo address HeaderAction
 
-    helloPipeBackAddress helloAction =
-      Signal.forwardTo address HelloAction
-
+    -- TODO OGG: remove
+    -- helloPipeBackAddress helloAction =
+    --   Signal.forwardTo address HelloAction
     tocPipeBackAddress tocAction =
       Signal.forwardTo address TocAction
 
@@ -36,10 +39,12 @@ root address model =
     body
       []
       [ HeaderView.root (headerPipeBackAddress Header.NoOp) model.header
-      , div
+      , main'
           [ id "main" ]
-          [ HelloView.root (helloPipeBackAddress Hello.NoOp) model.hello
-          , TocView.root (tocPipeBackAddress Toc.NoOp) model.toc
+          [ {- TODO OGG remove: HelloView.root (helloPipeBackAddress Hello.NoOp) model.hello
+            ,
+            -}
+            TocView.root (tocPipeBackAddress Toc.NoOp) model.toc
           ]
       , FooterView.root (footerPipeBackAddress Footer.NoOp) model.footer
       ]
