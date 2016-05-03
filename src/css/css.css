@@ -13,7 +13,7 @@ pre {
     margin-top: 1.75rem;
 }
 pre, code {
-    font-family: Hack, monospace;
+    font-family: "Hack", "monospace";
     font-size: .75rem;
 }
 a {

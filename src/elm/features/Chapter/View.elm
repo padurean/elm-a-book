@@ -26,7 +26,7 @@ blurredView address model =
         ]
         [ i
             [ class "fa fa-bookmark-o fa-lg"
-            , style styles.blurred.chapterIcon
+            , style styles.common.chapterIcon
             ]
             []
         , text model.title
@@ -56,7 +56,16 @@ focusedView address model =
         ]
     , div
         [ style styles.focused.chapterWrapper ]
-        [ span [ style styles.focused.title ] [ text model.title ]
+        [ span
+            [ style styles.focused.title
+            ]
+            [ i
+                [ class "fa fa-bookmark-o fa-lg"
+                , style styles.common.chapterIcon
+                ]
+                []
+            , text model.title
+            ]
         , span [ style styles.focused.date ] [ text model.date ]
         , div
             [ style styles.focused.md ]
@@ -77,7 +86,10 @@ chapterNotFound title =
 
 
 styles :
-  { focused :
+  { common :
+    { chapterIcon : List ( String, String )
+    }
+  , focused :
       { wrapper : List ( String, String )
       , chapterWrapper : List ( String, String )
       , title : List ( String, String )
@@ -90,11 +102,17 @@ styles :
       , title : List ( String, String )
       , date : List ( String, String )
       , desc : List ( String, String )
-      , chapterIcon : List ( String, String )
       }
   }
 styles =
-  { focused =
+  { common =
+    { chapterIcon =
+        [ ( "display", "inline-block" )
+        , ( "margin-right", ".5rem" )
+        , ( "font-size", "1.5rem" )
+        ]
+    }
+  , focused =
       { wrapper =
           []
       , chapterWrapper =
@@ -135,11 +153,6 @@ styles =
           ]
       , desc =
           [ ( "margin-top", ".5rem" )
-          ]
-      , chapterIcon =
-          [ ( "display", "inline-block" )
-          , ( "margin-right", ".5rem" )
-          , ( "font-size", "1.5rem" )
           ]
       }
   }

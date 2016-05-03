@@ -31,7 +31,10 @@ to easily generate blocks of `Element` or `Html`.
 
 [elm-markdown]: http://package.elm-lang.org/packages/evancz/elm-markdown/latest
 
+
 ```elm
+{---> Main.elm <---------}
+
 module Features.Chapter.State (..) where
 
 import Html exposing (Html)
