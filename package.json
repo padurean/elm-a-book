@@ -34,10 +34,10 @@
     "watch:test:elm": "chokidar 'src/**/*.elm' 'test/**/*.elm' -c 'npm run test'",
     "elm:make:test-raw": "elm make --warn test/elm/TestMain.elm --output test/elm/compiled/TestMain-Raw.js",
     "console:make:test": "sh ./elm-stuff/packages/laszlopandy/elm-console/1.1.1/elm-io.sh test/elm/compiled/TestMain-Raw.js test/elm/compiled/TestMain.js",
-    "watch": "npm run mkdir:dist && npm run make:dist && npm run watch:dist & ws -d dist",
-    "dist": "npm run mkdir:dist && npm run test && npm run make:dist",
+    "dev": "npm run mkdir:dist && npm run make:dist && npm run watch:dist & ws -d dist",
+    "build": "npm run mkdir:dist && npm run test && npm run make:dist",
     "test": "npm run elm:make:test-raw && npm run console:make:test && node test/elm/compiled/TestMain.js",
-    "watch:test": "npm run test & npm run watch:test:elm"
+    "dev:test": "npm run test & npm run watch:test:elm"
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
